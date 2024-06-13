@@ -1,10 +1,11 @@
 # insert-google-calendar
 
- - [wataruの作ってたやつ](https://github.com/flat35hd99/play-oauth)をベースにしてるよ
+ - [flatが作ってたやつ](https://github.com/flat35hd99/play-oauth)をベースにしてるよ
+    - publicなのでflatと呼ばせてもらうよ
     - 認証コードが自動で取得されて便利
- - 認証のときブラウザが自動で開いたり、calendarに予定が作れるように改良を加えたよ
+ - 認証のときブラウザが自動で開いたり、カレンダーのイベントを作成できるように改良を加えたよ
  - クレデンシャルが必要だから、[ここ](https://console.cloud.google.com/apis/credentials)からtestの方をダウンロードしてcredentials.jsonとして保存して
- - events.csvっていう名前のcsvファイルを読み込んでイベントを作成するようにしてあるよ
+ - events.csvっていう名前のcsvファイルを読み込んでイベントを作成するよ
  - csvはsummary,start_datetime,end_datetime,timezone,attendeesの形式になってるよ
     - attendeeは;で分けて複数入れられるよ
     - 会議室を追加したいときは、attendeeに会議室のcalenderidを入れればいけるよ
