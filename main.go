@@ -11,6 +11,7 @@ import (
 	"os/exec"
 	"runtime"
 	"strings"
+	"sync"
 
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
@@ -33,9 +34,12 @@ func getTokenFromWeb(config *oauth2.Config) *oauth2.Token {
 
 	var authCode string
 	waitCh := make(chan struct{})
+	var once sync.Once
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		authCode = r.URL.Query().Get("code")
-		close(waitCh)
+		once.Do(func() {
+			close(waitCh)
+		})
 		fmt.Fprint(w, "Authentication successful! You can close this window.")
 	})
 
